@@ -1,5 +1,6 @@
 package com.project.chenjin.follow_me_news;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
@@ -10,8 +11,12 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.project.chenjin.follow_me_news.activity.GuideActivity;
+import com.project.chenjin.follow_me_news.until.CacheUntil;
+
 public class WelcomeActivity extends AppCompatActivity {
 
+    public static final String START_MAIN_ACTIVITY = "startMainActivity";
     private RelativeLayout welcome_layout;
 
     @Override
@@ -50,7 +55,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         welcome_layout.startAnimation(animationSet);
         animationSet.setAnimationListener(new MyAnimationListener());
-
     }
 
 
@@ -59,11 +63,31 @@ public class WelcomeActivity extends AppCompatActivity {
     class MyAnimationListener implements Animation.AnimationListener{
         @Override
         public void onAnimationStart(Animation animation) {
-            Toast.makeText(WelcomeActivity.this, "动画播放完成", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(WelcomeActivity.this, "动画播放开始", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onAnimationEnd(Animation animation) {
+            Toast.makeText(WelcomeActivity.this, "动画播放完成", Toast.LENGTH_SHORT).show();
+
+            //判断是否进入过主界面
+            boolean isStartMainActivity = CacheUntil.getBoolean(WelcomeActivity.this, START_MAIN_ACTIVITY);
+            Intent intent;
+            if(isStartMainActivity){
+                //即进入过主界面，跳过引导界面
+                intent = new Intent(WelcomeActivity.this, MainActivity.class);
+
+
+            }
+            else{
+                //进入引导界面
+                intent = new Intent(WelcomeActivity.this, GuideActivity.class);
+
+            }
+            startActivity(intent);
+            //进入其他Activity后，关闭WelcomeActivity
+            finish();
+
 
         }
 
