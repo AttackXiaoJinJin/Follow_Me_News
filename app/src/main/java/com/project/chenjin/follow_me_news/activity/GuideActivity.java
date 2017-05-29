@@ -18,6 +18,7 @@ import com.project.chenjin.follow_me_news.MainActivity;
 import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.WelcomeActivity;
 import com.project.chenjin.follow_me_news.until.CacheUntil;
+import com.project.chenjin.follow_me_news.until.DensityUtil;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,8 @@ public class GuideActivity extends AppCompatActivity {
 
     private ArrayList<ImageView> arrayimgs;
     private int point_length;
+
+    private int widthDp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,10 @@ public class GuideActivity extends AppCompatActivity {
 
             ImageView grayPoint= new ImageView(this);
             grayPoint.setBackgroundResource(R.drawable.gray_point);
+
+            widthDp = DensityUtil.dip2px(this, 10);
             //35px,像素,要做屏幕适配
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(35 , 35);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(widthDp , widthDp);
 
             if( i != 0){
                 params.leftMargin=20;

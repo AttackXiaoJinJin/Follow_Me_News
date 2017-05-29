@@ -49,8 +49,8 @@
         </LinearLayout>
         <ImageView
             android:id="@+id/point_red"
-            android:layout_width="35px"
-            android:layout_height="35px"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:background="@drawable/red_point"/>
 
     </RelativeLayout>
