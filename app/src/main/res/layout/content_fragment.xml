@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_fragment"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#FCFCFC">
+
+    <com.project.chenjin.follow_me_news.userdefined.NoScrollViewPager
+        android:id="@+id/content_viewpager"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </com.project.chenjin.follow_me_news.userdefined.NoScrollViewPager>
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        android:orientation="horizontal"
+
+        android:padding="1dp">
+
+        <RadioButton
+
+            android:id="@+id/rb_one"
+            style="@style/radio_button_style"
+            android:drawableTop="@drawable/one_drawable_selector"
+            android:text="首页"
+
+
+            />
+
+        <RadioButton
+            android:id="@+id/rb_two"
+            style="@style/radio_button_style"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/two_drawable_selector"
+
+            android:text="发现" />
+
+        <RadioButton
+            android:id="@+id/rb_three"
+            style="@style/radio_button_style"
+            android:drawableTop="@drawable/three_drawable_selector"
+            android:text="写信"
+
+
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/rb_four"
+            style="@style/radio_button_style"
+            android:drawableTop="@drawable/four_drawable_selector"
+            android:text="消息"
+
+
+            />
+
+        <RadioButton
+            android:id="@+id/rb_five"
+            style="@style/radio_button_style"
+            android:drawableTop="@drawable/five_drawable_selector"
+            android:text="我的"
+
+            />
+
+
+    </RadioGroup>
+
+
+</LinearLayout>

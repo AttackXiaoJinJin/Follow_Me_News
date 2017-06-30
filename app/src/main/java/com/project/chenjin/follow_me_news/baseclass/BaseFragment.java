@@ -16,13 +16,13 @@ import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment{
 
-    public Activity mainActivity;
+    public Activity context; //mainActivity
 
     //fragment被创建时回调该方法
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivity=getActivity();
+        context=getActivity();
 
     }
 

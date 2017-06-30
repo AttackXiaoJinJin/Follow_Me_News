@@ -1,13 +1,12 @@
 package com.project.chenjin.follow_me_news;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.view.WindowManager;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.project.chenjin.follow_me_news.fragment.ContentFragment;
 import com.project.chenjin.follow_me_news.fragment.LeftMenuFragment;
-import com.project.chenjin.follow_me_news.fragment.MainMenuFragment;
 import com.project.chenjin.follow_me_news.until.DensityUtil;
 
 public class MainActivity extends SlidingFragmentActivity {
@@ -40,26 +39,27 @@ public class MainActivity extends SlidingFragmentActivity {
 
         //初始化fragment
         initFragment();
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
     }
 
    private void initFragment() {
-
+        /*
         //1.得到fragmentManger
         FragmentManager fragmentManager = getSupportFragmentManager();
         //2.开启事务
         FragmentTransaction ft = fragmentManager.beginTransaction();
         //3.替换
         //抽取tag,因为还要供其他地方使用
-        ft.replace(R.id.main_frame, new MainMenuFragment(), MAIN_CONTENT_TAG);
+        ft.replace(R.id.main_frame, new ContentFragment(), MAIN_CONTENT_TAG);
         ft.replace(R.id.leftmenu_frame, new LeftMenuFragment(), LEFT_CONTENT_TAG);
         //4.提交
         ft.commit();
+         */
 
-
-
-      //  getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new MainMenuFragment(), MAIN_CONTENT_TAG)
-        //        .replace(R.id.leftmenu_frame, new LeftMenuFragment(), LEFT_CONTENT_TAG).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new ContentFragment(), MAIN_CONTENT_TAG)
+                .replace(R.id.leftmenu_frame, new LeftMenuFragment(), LEFT_CONTENT_TAG).commit();
 
     }
 }

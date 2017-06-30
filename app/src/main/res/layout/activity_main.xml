@@ -4,18 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/main_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textview_main"
-        android:layout_gravity="start"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello World!"
-        android:textColor="#ff0000"
-        android:textSize="30sp"
-        android:background="#fff"
-        />
+
+       >
 
     </FrameLayout>
 

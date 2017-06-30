@@ -3,19 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/leftmenu_frame"
+    android:background="#4876FF"
     >
-
-    <TextView
-        android:id="@+id/textview_main"
-        android:layout_gravity="start"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="左侧菜单"
-        android:textColor="#ff0000"
-        android:textSize="30sp"
-        android:background="#0f0"
-        />
-
-
 
 </FrameLayout>
