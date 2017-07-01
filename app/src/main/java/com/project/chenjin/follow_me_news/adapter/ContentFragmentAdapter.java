@@ -34,7 +34,7 @@ public class ContentFragmentAdapter  extends PagerAdapter {
         //各个子页面
         View rootView = basePager.rootView;
         //调用各个页面的initData()
-        basePager.initData();
+        //basePager.initData();
         container.addView(rootView);
         return rootView;
     }
