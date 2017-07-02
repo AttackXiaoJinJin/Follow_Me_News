@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.project.chenjin.follow_me_news.MainActivity;
 import com.project.chenjin.follow_me_news.R;
 
 /**
@@ -37,6 +38,16 @@ public class BasePager {
         tv_title=(TextView)view.findViewById(R.id.tv_title);
         ic_menu=(ImageButton)view.findViewById(R.id.ic_menu);
         fl_content=(FrameLayout)view.findViewById(R.id.fl_content);
+        ic_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //若注释掉，则按左上按钮不会弹出侧面菜单栏
+               MainActivity mainActivity = (MainActivity)context;
+                //开，关，取反
+                mainActivity.getSlidingMenu().toggle();
+
+            }
+        });
         return view;
     }
 

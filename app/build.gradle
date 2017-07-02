@@ -27,6 +27,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile project(':SlidingMenulibrary')  //关联本地上的
-    compile 'org.xutils:xutils:3.5.0'  //关联网络上的
+    compile project(':SlidingMenulibrary')
+    //关联本地上的
+    compile 'org.xutils:xutils:3.5.0'
+    //关联网络上的
+    compile files('libs/gson-2.8.1.jar')
 }

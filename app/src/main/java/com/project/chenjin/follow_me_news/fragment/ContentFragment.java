@@ -78,6 +78,11 @@ public class ContentFragment extends BaseFragment{
         basePagers.get(0).initData();
     }
 
+    //得到主页新闻
+    public HomePager getHomePager() {
+        return (HomePager) basePagers.get(0);
+    }
+
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
 
         @Override
