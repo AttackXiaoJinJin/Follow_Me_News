@@ -1,7 +1,7 @@
 package com.project.chenjin.follow_me_news.pagers;
 
 import android.content.Context;
-import android.provider.SyncStateContract;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.google.gson.Gson;
@@ -63,8 +63,22 @@ public class HomePager extends BasePager{
         fl_content.addView(textView);
         //4.绑定数据
         textView.setText("Home内容");*/
+        //获取缓存数据
+        String saveJson = CacheUntil.getString(context,Constant.NEWS_URL);
+
+        if(!TextUtils.isEmpty(saveJson)){
+            try {
+                processData(saveJson);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+
         //联网请求数据
-        getDataFromInternet();
+       getDataFromInternet();
 
 
 
@@ -118,7 +132,7 @@ public class HomePager extends BasePager{
 
         //添加详情页面
         detailBasePagers = new ArrayList<>();
-        detailBasePagers.add(new NewsDetailPager(context));
+        detailBasePagers.add(new NewsDetailPager(context,slidingdata.get(0)));
         detailBasePagers.add(new TopicDetailPager(context));
         detailBasePagers.add(new PhotosDetailPager(context));
         detailBasePagers.add(new InteractDetailPager(context));
@@ -196,11 +210,6 @@ public class HomePager extends BasePager{
                             childrenData.setType(type);
                         }
                     }
-
-
-
-
-
 
                 }
 

@@ -28,4 +28,10 @@ public class CacheUntil {
         SharedPreferences sp= context.getSharedPreferences("chenjin" , context.MODE_PRIVATE);
         sp.edit().putString(key, value).commit();
     }
+
+    public static String getString(Context context, String key) {
+        SharedPreferences sp= context.getSharedPreferences("chenjin" , context.MODE_PRIVATE);
+        //return  sp.getString(key, none);会崩溃
+        return  sp.getString(key, "");
+    }
 }

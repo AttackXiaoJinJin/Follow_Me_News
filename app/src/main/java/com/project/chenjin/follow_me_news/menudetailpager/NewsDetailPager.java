@@ -1,12 +1,21 @@
 package com.project.chenjin.follow_me_news.menudetailpager;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.view.Gravity;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 
+import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
+import com.project.chenjin.follow_me_news.domain.HomePagerBean;
+import com.project.chenjin.follow_me_news.menudetailpager.tabdetailpager.TabDetailPager;
+
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 项目名称： Follow_Me_News
@@ -16,26 +25,67 @@ import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
  */
 
 public class NewsDetailPager extends MenuDetailBasePager{
-    private TextView textView;
+    @ViewInject(R.id.newsmenu_viewpager)
+    private ViewPager viewPager;
+    //页签页面数据的集合
+    private List<HomePagerBean.DataBean.ChildrenBean> childrenBeanList;
+    //页签页面的集合
+    private ArrayList<TabDetailPager> tabDetailPagers;
 
-
-    public NewsDetailPager(Context context) {
+    public NewsDetailPager(Context context, HomePagerBean.DataBean dataBean) {
         super(context);
+        childrenBeanList = dataBean.getChildren();
+
     }
 
     @Override
     public View initView() {
-        textView = new TextView(context);
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.BLACK);
-        textView.setTextSize(25);
-
-        return textView;
+        View view = View.inflate(context, R.layout.newsmenu_detail_pager,null);
+        x.view().inject(NewsDetailPager.this, view);
+        return view;
     }
 
     @Override
     public void initData() {
         super.initData();
-        textView.setText("设置新闻内容");
+
+        //准备新闻详情页面的数据
+        tabDetailPagers = new ArrayList<>();
+        for(int i=0; i<childrenBeanList.size(); i++){
+            tabDetailPagers.add(new TabDetailPager(context, childrenBeanList.get(i)));
+        }
+
+        //设置适配器
+        viewPager.setAdapter(new MyNewsDetailPagerAdapter());
+
     }
+
+    class MyNewsDetailPagerAdapter extends PagerAdapter{
+
+        @Override
+        public int getCount() {
+            return tabDetailPagers.size();
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            TabDetailPager tabDetailPager = tabDetailPagers.get(position);
+            View rootView = tabDetailPager.rootView;
+            //初始化数据
+            tabDetailPager.initData();
+            container.addView(rootView);
+            return rootView;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View)object);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+    }
+
 }
