@@ -1,6 +1,7 @@
 package com.project.chenjin.follow_me_news;
 
 import android.os.Bundle;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -16,6 +17,8 @@ public class MainActivity extends SlidingFragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //去掉顶部标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         initSlidingMenu();
 

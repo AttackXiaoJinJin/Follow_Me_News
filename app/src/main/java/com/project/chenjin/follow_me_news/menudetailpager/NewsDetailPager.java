@@ -10,6 +10,7 @@ import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
 import com.project.chenjin.follow_me_news.domain.HomePagerBean;
 import com.project.chenjin.follow_me_news.menudetailpager.tabdetailpager.TabDetailPager;
+import com.viewpagerindicator.TabPageIndicator;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -25,6 +26,9 @@ import java.util.List;
  */
 
 public class NewsDetailPager extends MenuDetailBasePager{
+    @ViewInject(R.id.tabPageIndicator)
+    private TabPageIndicator tabPageIndicator;
+
     @ViewInject(R.id.newsmenu_viewpager)
     private ViewPager viewPager;
     //页签页面数据的集合
@@ -57,6 +61,8 @@ public class NewsDetailPager extends MenuDetailBasePager{
 
         //设置适配器
         viewPager.setAdapter(new MyNewsDetailPagerAdapter());
+        //监听器indicator一定在适配器之后
+        tabPageIndicator.setViewPager(viewPager);
 
     }
 
@@ -85,6 +91,12 @@ public class NewsDetailPager extends MenuDetailBasePager{
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
+        }
+
+        //indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return childrenBeanList.get(position).getTitle();
         }
     }
 
