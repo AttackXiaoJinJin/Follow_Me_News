@@ -579,7 +579,15 @@
                     "endOffset": 6159
                 },
                 "from": {
-                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\values\\vpi__styles.xml"
+                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\values\\vpi__styles.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 1847,
+                        "endLine": 46,
+                        "endColumn": 12,
+                        "endOffset": 2032
+                    }
                 }
             },
             {
@@ -592,15 +600,7 @@
                     "endOffset": 6842
                 },
                 "from": {
-                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\values\\vpi__styles.xml",
-                    "position": {
-                        "startLine": 25,
-                        "startColumn": 4,
-                        "startOffset": 962,
-                        "endLine": 36,
-                        "endColumn": 12,
-                        "endOffset": 1640
-                    }
+                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\values\\vpi__styles.xml"
                 }
             }
         ]

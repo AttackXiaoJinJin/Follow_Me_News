@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tabdetail_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+        </android.support.v4.view.ViewPager>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#44000000"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/tabdetail_tv_title"
+                android:text="挪威的森林"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:id="@+id/point_group_tabdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:layout_marginRight="8dp"
+                >
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+

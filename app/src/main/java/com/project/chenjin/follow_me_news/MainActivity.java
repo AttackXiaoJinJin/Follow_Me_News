@@ -50,7 +50,7 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
         //6.设置主页占据的宽度
-        slidingMenu.setBehindOffset(DensityUtil.dip2px(MainActivity.this, 200));
+        slidingMenu.setBehindOffset(DensityUtil.dip2px(MainActivity.this, 260));
     }
 
     private void initFragment() {

@@ -579,7 +579,15 @@
                     "endOffset": 6159
                 },
                 "from": {
-                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml"
+                    "file": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 68,
+                        "startColumn": 4,
+                        "startOffset": 5974,
+                        "endLine": 71,
+                        "endColumn": 12,
+                        "endOffset": 6159
+                    }
                 }
             },
             {
