@@ -21,6 +21,7 @@ import com.project.chenjin.follow_me_news.domain.HomePagerBean;
 import com.project.chenjin.follow_me_news.domain.TabDetailPagerBean;
 import com.project.chenjin.follow_me_news.until.CacheUntil;
 import com.project.chenjin.follow_me_news.until.Constant;
+import com.project.chenjin.follow_me_news.userdefined.HorizontalScrollViewPager;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.DensityUtil;
@@ -50,7 +51,7 @@ public class TabDetailPager extends MenuDetailBasePager{
     private TabDetailPagerListAdapter tabDetailPagerListAdapter;
     private ImageOptions imageOptions;
 
-    private ViewPager tabdetail_viewpager;
+    private HorizontalScrollViewPager tabdetail_viewpager;
     private TextView tabdetail_tv_title;
     private LinearLayout point_group_tabdetail;
     private ListView list_item_tabdetail;
@@ -88,7 +89,7 @@ public class TabDetailPager extends MenuDetailBasePager{
 
         View topNewsView = View.inflate(context, R.layout.topnews,null);
         //以后顶部和listview要分开，用xUtil会报错,故不用
-        tabdetail_viewpager = (ViewPager)topNewsView.findViewById(R.id.tabdetail_viewpager);
+        tabdetail_viewpager = (HorizontalScrollViewPager)topNewsView.findViewById(R.id.tabdetail_viewpager);
         tabdetail_tv_title = (TextView)topNewsView.findViewById(R.id.tabdetail_tv_title);
         point_group_tabdetail = (LinearLayout)topNewsView.findViewById(R.id.point_group_tabdetail);
         //把顶部轮播图部分视图以头的方式添加到Listview中
@@ -272,6 +273,8 @@ public class TabDetailPager extends MenuDetailBasePager{
             String imageUrl = Constant.BASE_URL + topnewsBean.getTopimage();
             //联网请求图片
             x.image().bind(imageView, imageUrl);
+            //闪退是图片过大,这么改图片模糊
+            //x.image().bind(imageView, imageUrl,imageOptions);
             return imageView;
         }
 

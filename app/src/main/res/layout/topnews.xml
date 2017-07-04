@@ -5,12 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="220dp">
 
-        <android.support.v4.view.ViewPager
+        <com.project.chenjin.follow_me_news.userdefined.HorizontalScrollViewPager
             android:id="@+id/tabdetail_viewpager"
             android:layout_width="match_parent"
             android:layout_height="220dp">
 
-        </android.support.v4.view.ViewPager>
+        </com.project.chenjin.follow_me_news.userdefined.HorizontalScrollViewPager>
 
         <RelativeLayout
             android:layout_width="match_parent"
