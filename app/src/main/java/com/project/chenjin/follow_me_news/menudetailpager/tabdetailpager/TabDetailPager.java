@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.follow_me_news_library.refreshlistview.RefreshListview;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
@@ -22,7 +23,6 @@ import com.project.chenjin.follow_me_news.domain.TabDetailPagerBean;
 import com.project.chenjin.follow_me_news.until.CacheUntil;
 import com.project.chenjin.follow_me_news.until.Constant;
 import com.project.chenjin.follow_me_news.userdefined.HorizontalScrollViewPager;
-import com.project.chenjin.follow_me_news.userdefined.RefreshListview;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.DensityUtil;
@@ -97,7 +97,8 @@ public class TabDetailPager extends MenuDetailBasePager{
         tabdetail_tv_title = (TextView)topNewsView.findViewById(R.id.tabdetail_tv_title);
         point_group_tabdetail = (LinearLayout)topNewsView.findViewById(R.id.point_group_tabdetail);
         //把顶部轮播图部分视图以头的方式添加到Listview中
-        list_item_tabdetail.addHeaderView(topNewsView);
+       // list_item_tabdetail.addHeaderView(topNewsView);
+        list_item_tabdetail.addTopNewsView(topNewsView);
         //设置监听下拉刷新
         list_item_tabdetail.setOnRefreshListener(new MyOnRefreshListener());
         return view;

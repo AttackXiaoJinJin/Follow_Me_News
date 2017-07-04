@@ -4,13 +4,13 @@
     android:layout_height="match_parent">
 
 
-    <com.project.chenjin.follow_me_news.userdefined.RefreshListview
+    <com.follow_me_news_library.refreshlistview.RefreshListview
         android:id="@+id/list_item_tabdetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="@android:color/transparent"
         android:divider="@null">
 
-    </com.project.chenjin.follow_me_news.userdefined.RefreshListview>
+    </com.follow_me_news_library.refreshlistview.RefreshListview>
 
 </LinearLayout>

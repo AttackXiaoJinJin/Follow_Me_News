@@ -1,7 +1,6 @@
-package com.project.chenjin.follow_me_news.userdefined;
+package com.follow_me_news_library.refreshlistview;
 
 import android.content.Context;
-import android.icu.text.SimpleDateFormat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,19 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.project.chenjin.follow_me_news.R;
-
+import android.icu.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  * 项目名称： Follow_Me_News
  * 创建人  ： chenjin
- * 创建时间： 2017/7/4   11:49.
- * 自定义下拉刷新的listview
+ * 创建时间： 2017/7/4   22:01.
  */
 
-public class RefreshListview extends ListView{
+public class RefreshListview extends ListView {
     //包括下拉刷新和顶部轮播图
     private LinearLayout headerView;
 
@@ -46,10 +41,13 @@ public class RefreshListview extends ListView{
     public static final int RELEASE_REFRESH = 1;
     //正在刷新
     public static final int REFRESHING = 2;
-   //当前状态
+    //当前状态
     private int currentStatus = PULL_DOWN_REFRESH;
     //是否已经加载更多
     private boolean isLoadMore = false;
+    private View topNewsView;
+    //listview在y轴上的坐标
+    private int listViewOnScreenY = -1;
 
     public RefreshListview(Context context) {
         this(context,null);
@@ -78,6 +76,17 @@ public class RefreshListview extends ListView{
         setOnScrollListener(new MyOnScrollListener());
 
     }
+    //添加顶部轮播图
+    public void addTopNewsView(View topNewsView) {
+        if(topNewsView != null) {
+            this.topNewsView = topNewsView;
+            headerView.addView(topNewsView);
+        }
+        else {
+
+        }
+    }
+
     class MyOnScrollListener implements OnScrollListener{
 
         @Override
@@ -111,7 +120,7 @@ public class RefreshListview extends ListView{
 
     private void initAnimation() {
         upAnimation = new RotateAnimation(0,-180,RotateAnimation.RELATIVE_TO_SELF,0.5f,
-                                                RotateAnimation.RELATIVE_TO_SELF,0.5f);
+                RotateAnimation.RELATIVE_TO_SELF,0.5f);
         upAnimation.setDuration(500);
         upAnimation.setFillAfter(true);
 
@@ -153,6 +162,14 @@ public class RefreshListview extends ListView{
                 if(startY == -1) {
                     startY = ev.getY();
                 }
+
+                //判断顶部轮播图是否完全显示，只有完全显示才会有下拉刷新
+                boolean isDisplayTopNews = isDisplayTopNews();
+                if(!isDisplayTopNews){
+                    //加载更多
+                    break;
+
+                }
                 //如果是正在刷新，则不让再刷新了
                 if(currentStatus == REFRESHING){
                     break;
@@ -173,7 +190,7 @@ public class RefreshListview extends ListView{
                     else if(paddingTop > 0 && currentStatus != RELEASE_REFRESH){
                         //手松刷新状态
                         currentStatus = RELEASE_REFRESH;
-                        //更新状态 
+                        //更新状态
                         refreshViewState();
 
                     }
@@ -183,7 +200,7 @@ public class RefreshListview extends ListView{
             case MotionEvent.ACTION_UP:
                 startY = -1;
                 if(currentStatus == PULL_DOWN_REFRESH){
-                     push_down_refresh.setPadding(0, - refreshHeight,0,0);
+                    push_down_refresh.setPadding(0, - refreshHeight,0,0);
                 }
                 else if(currentStatus == RELEASE_REFRESH){
                     //设置状态为正在刷新
@@ -201,6 +218,30 @@ public class RefreshListview extends ListView{
             default:break;
         }
         return super.onTouchEvent(ev);
+    }
+    //判断是否完全显示顶部轮播图
+    //当listview在屏幕上的Y轴坐标小于或等于顶部轮播图在Y轴的坐标时，顶部轮播图完全显示
+    private boolean isDisplayTopNews() {
+        if(topNewsView != null){
+            //1.得到listview在屏幕上的坐标
+            int[] location = new int[2];
+            if(listViewOnScreenY == -1) {
+                getLocationOnScreen(location);
+                listViewOnScreenY = location[1];
+            }
+            //2.得到顶部轮播图在屏幕上的坐标
+            topNewsView.getLocationOnScreen(location);
+            int topNewsViewOnScreenY = location[1];
+      /*  if(listViewOnScreenY <= topNewsViewOnScreenY){
+            return true;
+        }else {
+            return false;
+        }*/
+            return listViewOnScreenY <= topNewsViewOnScreenY;
+        }else{
+            return true;
+        }
+
     }
 
     private void refreshViewState() {
@@ -247,7 +288,7 @@ public class RefreshListview extends ListView{
             }
 
         }
-        }
+    }
 
     //得到当前安卓系统的时间
     private String getSystemTime() {
@@ -273,3 +314,4 @@ public class RefreshListview extends ListView{
 
 
 }
+
