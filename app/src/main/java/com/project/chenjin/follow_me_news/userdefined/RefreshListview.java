@@ -1,11 +1,13 @@
 package com.project.chenjin.follow_me_news.userdefined;
 
 import android.content.Context;
+import android.icu.text.SimpleDateFormat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -13,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.project.chenjin.follow_me_news.R;
+
+import java.util.Date;
 
 /**
  * 项目名称： Follow_Me_News
@@ -32,6 +36,10 @@ public class RefreshListview extends ListView{
     private TextView tv_time_refresh;
     //下拉刷新控件的高
     private int refreshHeight;
+    //加载更多的控件
+    private View footView;
+    //高
+    private int footerViewHeight;
     //下拉刷新
     public static final int PULL_DOWN_REFRESH = 0;
     //手松刷新
@@ -40,6 +48,8 @@ public class RefreshListview extends ListView{
     public static final int REFRESHING = 2;
    //当前状态
     private int currentStatus = PULL_DOWN_REFRESH;
+    //是否已经加载更多
+    private boolean isLoadMore = false;
 
     public RefreshListview(Context context) {
         this(context,null);
@@ -54,7 +64,48 @@ public class RefreshListview extends ListView{
         initHeaderView(context);
         //初始化动画
         initAnimation();
+        initFooterView(context);
     }
+
+    private void initFooterView(Context context) {
+        footView = View.inflate(context, R.layout.refresh_footer,null);
+        footView.measure(0,0);
+        footerViewHeight = footView.getMeasuredHeight();
+        footView.setPadding(0,-footerViewHeight,0,0);
+        //listview添加footer
+        addFooterView(footView);
+        //监听listview的滚动
+        setOnScrollListener(new MyOnScrollListener());
+
+    }
+    class MyOnScrollListener implements OnScrollListener{
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+            //当静止或者惯性滚动，
+            if(scrollState == OnScrollListener.SCROLL_STATE_IDLE || scrollState == OnScrollListener.SCROLL_STATE_FLING){
+                // 且是最后一条可见的
+
+                if(getLastVisiblePosition() >= getCount()-1){
+                    //1.显示加载更多布局
+                    footView.setPadding(8,8,8,8);
+                    //2.状态改变
+                    isLoadMore = true;
+                    //3.回调接口
+                    if(mOnRefreshListener != null){
+                        mOnRefreshListener.onLoadMore();
+                    }
+                }
+            }
+
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+        }
+    }
+
     private Animation upAnimation;
     private Animation downAnimation;
 
@@ -141,6 +192,10 @@ public class RefreshListview extends ListView{
                     push_down_refresh.setPadding(0,0,0,0);
 
                     //回调接口
+                    //如果客户不想设置下拉刷新，则mOnRefreshListener为空，再调用会崩溃
+                    if(mOnRefreshListener != null){
+                        mOnRefreshListener.onPullDownRefresh();
+                    }
                 }
                 break;
             default:break;
@@ -169,4 +224,52 @@ public class RefreshListview extends ListView{
                 break;
         }
     }
+    //当联网成功和失败的时候回调该方法
+    //用于刷新状态的还原
+    public void onRefreshFinish(boolean success) {
+        if(isLoadMore){
+            //加载更多
+            isLoadMore = false;
+            //隐藏加载更多的布局
+            footView.setPadding(0, -footerViewHeight, 0, 0);
+        }else {
+            //下拉刷新
+            tv_title_refresh.setText("下拉刷新...");
+            currentStatus = PULL_DOWN_REFRESH;
+            ic_arrow.clearAnimation();
+            pb_status.setVisibility(GONE);
+            ic_arrow.setVisibility(VISIBLE);
+            //隐藏下拉刷新控件
+            push_down_refresh.setPadding(0, -refreshHeight, 0 ,0);
+            if(success){
+                //设置最新的更新时间
+                tv_time_refresh.setText("上次更新时间: "+ getSystemTime());
+            }
+
+        }
+        }
+
+    //得到当前安卓系统的时间
+    private String getSystemTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date());
+
+    }
+
+    //监听控件de刷新
+    public interface OnRefreshListener{
+        //当下拉刷新的时候回调这个方法
+        public void onPullDownRefresh();
+        //当加载更多的时候回调该方法
+        public void onLoadMore();
+    }
+    private OnRefreshListener mOnRefreshListener;
+
+    //设置监听刷新,由外界设置
+    public void setOnRefreshListener(OnRefreshListener l){
+        this.mOnRefreshListener = l;
+    }
+
+
+
 }
