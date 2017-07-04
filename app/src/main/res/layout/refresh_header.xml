@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--下拉刷新控件-->
+    <LinearLayout
+        android:id="@+id/push_down_refresh"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/ic_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/common_listview_headview_red_arrow"/>
+
+            <ProgressBar
+                android:id="@+id/pb_status"
+                android:indeterminateDrawable="@drawable/custom_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center"/>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:gravity="center_horizontal"
+                android:id="@+id/tv_title_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff0000"
+                android:textSize="18sp"
+                android:text="下拉刷新"/>
+
+            <TextView
+                android:id="@+id/tv_time_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#55000000"
+                android:textSize="18sp"
+                android:text="上次更新时间：2017/7/4"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--顶部轮播图-->
+
+</LinearLayout>

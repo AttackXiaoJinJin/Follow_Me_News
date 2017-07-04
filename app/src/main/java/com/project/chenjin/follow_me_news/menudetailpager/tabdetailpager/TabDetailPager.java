@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -22,6 +21,7 @@ import com.project.chenjin.follow_me_news.domain.TabDetailPagerBean;
 import com.project.chenjin.follow_me_news.until.CacheUntil;
 import com.project.chenjin.follow_me_news.until.Constant;
 import com.project.chenjin.follow_me_news.userdefined.HorizontalScrollViewPager;
+import com.project.chenjin.follow_me_news.userdefined.RefreshListview;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.DensityUtil;
@@ -54,7 +54,7 @@ public class TabDetailPager extends MenuDetailBasePager{
     private HorizontalScrollViewPager tabdetail_viewpager;
     private TextView tabdetail_tv_title;
     private LinearLayout point_group_tabdetail;
-    private ListView list_item_tabdetail;
+    private RefreshListview list_item_tabdetail;
 
 
 
@@ -85,7 +85,7 @@ public class TabDetailPager extends MenuDetailBasePager{
             textView.setTextSize(25);
         return textView;*/
         View view = View.inflate(context, R.layout.tabdetail_pager, null);
-        list_item_tabdetail = (ListView)view.findViewById(R.id.list_item_tabdetail);
+        list_item_tabdetail = (RefreshListview) view.findViewById(R.id.list_item_tabdetail);
 
         View topNewsView = View.inflate(context, R.layout.topnews,null);
         //以后顶部和listview要分开，用xUtil会报错,故不用
