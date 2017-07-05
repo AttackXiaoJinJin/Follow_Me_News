@@ -133,7 +133,7 @@ public class HomePager extends BasePager{
         //添加详情页面
         detailBasePagers = new ArrayList<>();
         detailBasePagers.add(new NewsDetailPager(context,slidingdata.get(0)));
-        detailBasePagers.add(new TopicDetailPager(context));
+        detailBasePagers.add(new TopicDetailPager(context,slidingdata.get(0)));
         detailBasePagers.add(new PhotosDetailPager(context));
         detailBasePagers.add(new InteractDetailPager(context));
 

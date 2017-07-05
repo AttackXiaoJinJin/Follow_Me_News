@@ -35,4 +35,5 @@ dependencies {
     compile project(':ViewPagerIndicatorlibrary')
     compile files('libs/glide-3.8.0.jar')
     compile project(':refreshlistview')
+    compile project(':PullToRefreshLibrary')
 }
