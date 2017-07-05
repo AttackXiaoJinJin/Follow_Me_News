@@ -12,10 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.webkit.JavascriptInterface;
 /**
- * 作者：尚硅谷-杨光福 on 2016/7/28 11:19
- * 微信：yangguangfu520
- * QQ号：541433511
- * 作用：java和js互调
+ * 项目名称： Follow_Me_News
+ * 创建人  ： chenjin
+ * 创建时间： 2017/6/29   15:28.
  */
 public class JavaAndJSActivity extends Activity implements View.OnClickListener {
     private EditText etNumber;
