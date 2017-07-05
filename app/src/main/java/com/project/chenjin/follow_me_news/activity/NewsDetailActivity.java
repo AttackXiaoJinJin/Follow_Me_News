@@ -1,6 +1,8 @@
 package com.project.chenjin.follow_me_news.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -21,6 +23,7 @@ public class NewsDetailActivity extends AppCompatActivity implements View.OnClic
     private WebView webView;
     private ProgressBar pbLoading;
     private String url;
+    private WebSettings webSettings;
 
     /**
      * Find the Views in the layout<br />
@@ -64,8 +67,54 @@ public class NewsDetailActivity extends AppCompatActivity implements View.OnClic
             // Handle clicks for icBack
         } else if ( v == icTextsize ) {
             // Handle clicks for icTextsize
+             showChangeTextSizeDialog();
         } else if ( v == icShare ) {
             // Handle clicks for icShare
+        }
+    }
+    //字体缓存
+    private int tempSize = 2;
+    private int realSize = tempSize;
+
+    private void showChangeTextSizeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("设置文字大小");
+        String[] items = new String[]{"超大字体","大字体","正常字体","小字体","超小字体"};
+        builder.setSingleChoiceItems(items, realSize, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                tempSize = which;
+            }
+        });
+        builder.setNegativeButton("取消",null);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                realSize = tempSize;
+                changeTextSize(realSize);
+            }
+        });
+        builder.show();
+
+    }
+
+    private void changeTextSize(int realSize) {
+        switch (realSize){
+            //超大字体
+            case 0:webSettings.setTextZoom(200);
+                break;
+            //大字体
+            case 1:webSettings.setTextZoom(150);
+                break;
+            //正常字体
+            case 2:webSettings.setTextZoom(100);
+                break;
+            //小字体
+            case 3:webSettings.setTextZoom(75);
+                break;
+            //超小字体
+            case 4:webSettings.setTextZoom(50);
+                break;
         }
     }
 
@@ -81,13 +130,14 @@ public class NewsDetailActivity extends AppCompatActivity implements View.OnClic
     private void getData() {
       url = getIntent().getStringExtra("url");
         //设置支持js
-        WebSettings webSettings = webView.getSettings();
+        webSettings = webView.getSettings();
         //设置支持js
         webSettings.setJavaScriptEnabled(true);
         //设置双击变大变小
         webSettings.setUseWideViewPort(true);
         //增加缩放按钮,页面也要支持
         webSettings.setBuiltInZoomControls(true);
+        webSettings.setTextZoom(100);
         //不让从当前网页跳转到系统浏览器中
         webView.setWebViewClient(new WebViewClient(){
             //当加载页面完成时回调

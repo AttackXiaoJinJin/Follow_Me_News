@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript">
+
+	function javaCallJs(){
+		 document.getElementById("content").innerHTML +=   
+	         "<br\>java调用了js无参函数";
+	}
+	
+	function javaCallJs(arg){
+		 document.getElementById("content").innerHTML =
+	         ("欢迎："+arg );
+	}
+	
+	
+   function showDialog(){
+      alert("大美女你好,我是来自javascript");
+   }
+   
+
+
+
+
+
+    </script>
+
+
+</head>
+
+
+<body>
+
+<div align="left" id="content">沉鱼落雁</div>
+<div align="right">欢迎你！</div>
+
+<p><img src="http://i0.hdslb.com/bfs/archive/d6954524a6006807fdf3ff19f4e60abb5dade04a.png@.webp"></p>
+
+
+<input type="button" value="点击Android被调用" onclick="window.Android.showToast()" />
+
+</body>
+
+
+</html>
