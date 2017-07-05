@@ -10,7 +10,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import android.webkit.JavascriptInterface;
 /**
  * 作者：尚硅谷-杨光福 on 2016/7/28 11:19
  * 微信：yangguangfu520
@@ -83,6 +83,7 @@ public class JavaAndJSActivity extends Activity implements View.OnClickListener 
         initWebView();
     }
 
+
     private void initWebView() {
         webView = new WebView(this);
         //设置支持js
@@ -103,10 +104,20 @@ public class JavaAndJSActivity extends Activity implements View.OnClickListener 
 
             }
         });
+        //添加js接口
+
+        webView.addJavascriptInterface(new MyJavascriptInterface(),"android");
+
         //加载网络的页面，也可以加载应用内置的页面
         webView.loadUrl("file:///android_asset/JavaAndJavaScriptCall.html");
        // setContentView(webView);
     }
 
+    private class MyJavascriptInterface {
+        @JavascriptInterface
+        public void showToast(){
+            Toast.makeText(JavaAndJSActivity.this , "java被js调用了",Toast.LENGTH_SHORT).show();
+        }
 
+    }
 }
