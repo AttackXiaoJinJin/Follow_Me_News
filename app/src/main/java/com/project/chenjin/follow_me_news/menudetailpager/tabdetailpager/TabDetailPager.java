@@ -1,11 +1,14 @@
 package com.project.chenjin.follow_me_news.menudetailpager.tabdetailpager;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.follow_me_news_library.refreshlistview.RefreshListview;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.R;
+import com.project.chenjin.follow_me_news.activity.NewsDetailActivity;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
 import com.project.chenjin.follow_me_news.domain.HomePagerBean;
 import com.project.chenjin.follow_me_news.domain.TabDetailPagerBean;
@@ -41,6 +45,7 @@ import java.util.List;
  */
 
 public class TabDetailPager extends MenuDetailBasePager{
+    public static final String READ_ARRAY_ID = "read_array_id";
     private final HomePagerBean.DataBean.ChildrenBean childBean;
     //private TextView textView;
     private String url;
@@ -101,7 +106,32 @@ public class TabDetailPager extends MenuDetailBasePager{
         list_item_tabdetail.addTopNewsView(topNewsView);
         //设置监听下拉刷新
         list_item_tabdetail.setOnRefreshListener(new MyOnRefreshListener());
+        //设置listView的item的点击监听
+        list_item_tabdetail.setOnItemClickListener(new MyOnItemClickListener());
+
         return view;
+    }
+    class MyOnItemClickListener implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              int realPosition = position-1;
+            TabDetailPagerBean.DataBean.NewsBean newsBean = news.get(realPosition);
+            //1.取出保存的id集合
+            String idArray = CacheUntil.getString(context, READ_ARRAY_ID);
+            //2.判断是否存在，若不存在则保存，并且刷新适配器
+            if(!idArray.contains(newsBean.getId()+"")){
+                CacheUntil.putString(context, READ_ARRAY_ID, idArray+newsBean.getId()+", ");
+                //刷新适配器
+                //getCount-->getView
+                tabDetailPagerListAdapter.notifyDataSetChanged();
+
+            }
+            //跳转到新闻浏览页面
+            Intent intent = new Intent(context, NewsDetailActivity.class);
+            intent.putExtra("url", Constant.BASE_URL + newsBean.getUrl());
+            context.startActivity(intent);
+
+        }
     }
 
     class MyOnRefreshListener implements RefreshListview.OnRefreshListener{
@@ -272,6 +302,15 @@ public class TabDetailPager extends MenuDetailBasePager{
             viewHolder.tv_title.setText(newsBean.getTitle());
             //设置更新时间
             viewHolder.tv_time.setText(newsBean.getPubdate());
+           //设置点击的颜色
+            String idArray2 =CacheUntil.getString(context, READ_ARRAY_ID);
+            if(idArray2.contains(newsBean.getId()+"")){
+                //设置灰色
+                viewHolder.tv_title.setTextColor(Color.GRAY);
+            }else {
+                //设置黑色
+                viewHolder.tv_title.setTextColor(Color.BLACK);
+            }
 
             return convertView;
         }

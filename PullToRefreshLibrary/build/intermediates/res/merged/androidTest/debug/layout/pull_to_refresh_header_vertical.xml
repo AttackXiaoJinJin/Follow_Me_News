@@ -19,7 +19,8 @@
                 android:id="@+id/pull_to_refresh_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                />
 
             <ProgressBar
                 android:id="@+id/pull_to_refresh_progress"
@@ -28,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:indeterminate="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                />
         </FrameLayout>
 
         <LinearLayout
@@ -39,6 +41,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:textColor="#ff0000"
                 android:id="@+id/pull_to_refresh_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:textColor="#ff0000"
                 android:id="@+id/pull_to_refresh_sub_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
