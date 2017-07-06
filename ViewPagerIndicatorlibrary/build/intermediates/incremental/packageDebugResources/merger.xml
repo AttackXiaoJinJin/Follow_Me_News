@@ -107,7 +107,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@drawable/vpi__tab_indicator_color</item>
     </style><style name="Widget">
-    </style><style name="Theme.PageIndicatorDefaults" parent="android:Theme">
+    </style><style name="Theme.PageIndicatorDefaults" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
     </style><style name="TextAppearance.TabPageIndicator" parent="Widget">

@@ -1,6 +1,7 @@
 package com.project.chenjin.follow_me_news.menudetailpager;
 
 import android.content.Context;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -13,7 +14,6 @@ import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
 import com.project.chenjin.follow_me_news.domain.HomePagerBean;
 import com.project.chenjin.follow_me_news.menudetailpager.tabdetailpager.TopicTabDetailPager;
-import com.viewpagerindicator.TabPageIndicator;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -29,8 +29,10 @@ import java.util.List;
  */
 
 public class TopicDetailPager extends MenuDetailBasePager{
-    @ViewInject(R.id.topicTabPageIndicator)
-    private TabPageIndicator topicTabPageIndicator;
+   // @ViewInject(R.id.topicTabPageIndicator)
+   // private TabPageIndicator topicTabPageIndicator;
+    @ViewInject(R.id.topicTabLayout)
+    private TabLayout tabLayout;
 
     @ViewInject(R.id.topicmenu_viewpager)
     private ViewPager topicViewPager;
@@ -76,9 +78,16 @@ public class TopicDetailPager extends MenuDetailBasePager{
         //设置适配器
         topicViewPager.setAdapter(new MyTopicTabDetailPagerAdapter());
         //监听器indicator一定在适配器之后
-        topicTabPageIndicator.setViewPager(topicViewPager);
+       // topicTabPageIndicator.setViewPager(topicViewPager);
+        tabLayout.setupWithViewPager(topicViewPager);
         //用TabPageIndicator监听页面的变化
-        topicTabPageIndicator.setOnPageChangeListener(new MyOnPageChangeListener());
+       // topicTabPageIndicator.setOnPageChangeListener(new MyOnPageChangeListener());
+        topicViewPager.addOnPageChangeListener(new MyOnPageChangeListener());
+
+        //设置滑动或者固定
+        //tabLayout.setTabMode(TabLayout.MODE_FIXED);
+         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+
 
     }
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
@@ -113,6 +122,8 @@ public class TopicDetailPager extends MenuDetailBasePager{
     }
 
     class MyTopicTabDetailPagerAdapter extends PagerAdapter {
+
+
 
         @Override
         public int getCount() {

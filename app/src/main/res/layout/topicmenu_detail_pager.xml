@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.viewpagerindicator.TabPageIndicator
+      <!--  <com.viewpagerindicator.TabPageIndicator
             android:id="@+id/topicTabPageIndicator"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -17,6 +17,17 @@
             android:layout_gravity="center_vertical">
 
         </com.viewpagerindicator.TabPageIndicator>
+        -->
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/topicTabLayout"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+        </android.support.design.widget.TabLayout>
+
 
         <ImageButton
             android:id="@+id/ic_topic_tab_next"
