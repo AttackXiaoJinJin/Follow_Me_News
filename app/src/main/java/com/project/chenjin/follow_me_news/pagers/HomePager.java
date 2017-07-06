@@ -4,6 +4,12 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.MainActivity;
 import com.project.chenjin.follow_me_news.baseclass.BasePager;
@@ -78,9 +84,35 @@ public class HomePager extends BasePager{
 
 
         //联网请求数据
-       getDataFromInternet();
+      // getDataFromInternet();
+        getDataFromInternetByVolley();
 
 
+    }
+
+    //使用volley联网请求数据
+    private void getDataFromInternetByVolley() {
+        //请求队列
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        //String请求
+        StringRequest  stringRequest = new StringRequest(Request.Method.GET, Constant.NEWS_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                LogUtil.e("volley成功 " + s);
+                //缓存数据
+                CacheUntil.putString(context, Constant.NEWS_URL, s);
+
+                //适配器
+                processData(s);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                LogUtil.e("volley失败 " + volleyError.getMessage());
+            }
+        });
+        //添加到队列中
+        requestQueue.add(stringRequest);
 
     }
 

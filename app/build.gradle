@@ -36,4 +36,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.xutils:xutils:3.5.0'
     testCompile 'junit:junit:4.12'
+    compile files('libs/volley.jar')
 }
