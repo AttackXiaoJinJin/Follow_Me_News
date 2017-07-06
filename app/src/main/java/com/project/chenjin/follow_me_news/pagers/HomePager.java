@@ -1,6 +1,7 @@
 package com.project.chenjin.follow_me_news.pagers;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -49,6 +50,7 @@ public class HomePager extends BasePager{
     //private List<HomePagerBean2.DetailPagerData> slidingdata;
     //详情页面的集合
     private ArrayList<MenuDetailBasePager> detailBasePagers;
+    private long startTime;
 
 
     public HomePager(Context context) {
@@ -83,7 +85,8 @@ public class HomePager extends BasePager{
                 e.printStackTrace();
             }
         }
-
+        //第三方联网框架测试性能
+        startTime = SystemClock.uptimeMillis();
 
         //联网请求数据
       // getDataFromInternet();
@@ -100,6 +103,9 @@ public class HomePager extends BasePager{
         StringRequest  stringRequest = new StringRequest(Request.Method.GET, Constant.NEWS_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
+                long endTime = SystemClock.uptimeMillis();
+                long passTime = endTime - startTime ;
+                LogUtil.e("volley的请求时间 " + passTime);
                 LogUtil.e("volley成功 " + s);
                 //缓存数据
                 CacheUntil.putString(context, Constant.NEWS_URL, s);
@@ -138,6 +144,9 @@ public class HomePager extends BasePager{
         x.http().get(requestParams, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                long endTime = SystemClock.uptimeMillis();
+                long passTime = endTime - startTime ;
+                LogUtil.e("xUntil3的请求时间 " + passTime);
                 LogUtil.e("成功 " + result);
                 //缓存数据
                 CacheUntil.putString(context, Constant.NEWS_URL, result);
