@@ -6,12 +6,10 @@ import android.view.View;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.MainActivity;
 import com.project.chenjin.follow_me_news.baseclass.BasePager;
@@ -25,6 +23,7 @@ import com.project.chenjin.follow_me_news.menudetailpager.PhotosDetailPager;
 import com.project.chenjin.follow_me_news.menudetailpager.TopicDetailPager;
 import com.project.chenjin.follow_me_news.until.CacheUntil;
 import com.project.chenjin.follow_me_news.until.Constant;
+import com.project.chenjin.follow_me_news.volley.VolleyManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -96,7 +95,7 @@ public class HomePager extends BasePager{
     //使用volley联网请求数据
     private void getDataFromInternetByVolley() {
         //请求队列
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        //RequestQueue requestQueue = Volley.newRequestQueue(context);
         //String请求
         StringRequest  stringRequest = new StringRequest(Request.Method.GET, Constant.NEWS_URL, new Response.Listener<String>() {
             @Override
@@ -128,7 +127,8 @@ public class HomePager extends BasePager{
             }
         };
         //添加到队列中
-        requestQueue.add(stringRequest);
+        //requestQueue.add(stringRequest);
+        VolleyManager.getRequestQueue().add(stringRequest);
 
     }
 

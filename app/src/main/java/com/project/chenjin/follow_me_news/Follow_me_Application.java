@@ -2,6 +2,8 @@ package com.project.chenjin.follow_me_news;
 
 import android.app.Application;
 
+import com.project.chenjin.follow_me_news.volley.VolleyManager;
+
 import org.xutils.x;
 
 /**
@@ -18,6 +20,8 @@ public class Follow_me_Application extends Application {
         super.onCreate();
         x.Ext.setDebug(true);
         x.Ext.init(this);
+        //初始化volley
+        VolleyManager.init(this);
 
     }
 }
