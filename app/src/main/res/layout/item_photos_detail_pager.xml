@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/item_photos_detail_pager_bg">
+        <ImageView
+            android:id="@+id/ic_icon_photos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/home_scroll_default"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_photos"
+            android:layout_marginBottom="5dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="性感小野马"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -3,14 +3,19 @@ package com.project.chenjin.follow_me_news.menudetailpager;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.R;
@@ -26,6 +31,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 /**
  * 项目名称： Follow_Me_News
@@ -43,6 +49,8 @@ public class PhotosDetailPager extends MenuDetailBasePager{
     private GridView gridView_photos;
 
     private String url;
+    private List<PhotosDetailPagerBean.DataBean.NewsBean> news;
+    private PhotosDetailPagerAdapter adapter;
 
     public PhotosDetailPager(Context context, HomePagerBean.DataBean dataBean) {
         super(context);
@@ -71,6 +79,96 @@ public class PhotosDetailPager extends MenuDetailBasePager{
     private void processData(String saveJson) {
         PhotosDetailPagerBean photosDetailPagerBean = parsedJson(saveJson);
        LogUtil.e(photosDetailPagerBean.getData().getNews().get(0).getTitle());
+
+        //设置适配器
+        news = photosDetailPagerBean.getData().getNews();
+        adapter = new PhotosDetailPagerAdapter();
+        listView_photos.setAdapter(adapter);
+    }
+
+    class PhotosDetailPagerAdapter extends BaseAdapter{
+
+        public PhotosDetailPagerAdapter() {
+            super();
+        }
+
+        @Override
+        public int getCount() {
+            return news.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+           if(convertView == null){
+               convertView = View.inflate(context , R.layout.item_photos_detail_pager,null);
+               viewHolder = new ViewHolder();
+               viewHolder.ic_icon_photos = (ImageView) convertView.findViewById(R.id.ic_icon_photos);
+               viewHolder.tv_title_photos = (TextView)convertView.findViewById(R.id.tv_title_photos);
+               //不能忘记
+               convertView.setTag(viewHolder);
+            }else {
+               viewHolder = (ViewHolder) convertView.getTag();
+            }
+
+            //根据位置得到对应的数据
+            PhotosDetailPagerBean.DataBean.NewsBean newsBean = news.get(position);
+            viewHolder.tv_title_photos.setText(newsBean.getTitle());
+            String imageUrl = Constant.BASE_URL + newsBean.getSmallimage();
+            //s使用volley设置图片
+            loaderImager(viewHolder , imageUrl );
+
+            return convertView;
+        }
+    }
+
+    static class ViewHolder{
+        ImageView ic_icon_photos;
+        TextView tv_title_photos;
+    }
+
+    /**
+     *
+     * @param viewHolder
+     * @param imageurl
+     */
+    private void loaderImager(final ViewHolder viewHolder, String imageurl) {
+
+        viewHolder.ic_icon_photos.setTag(imageurl);
+        //直接在这里请求会乱位置
+        ImageLoader.ImageListener listener = new ImageLoader.ImageListener() {
+            @Override
+            public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
+                if (imageContainer != null) {
+
+                    if (viewHolder.ic_icon_photos != null) {
+                        if (imageContainer.getBitmap() != null) {
+                            //设置图片
+                            viewHolder.ic_icon_photos.setImageBitmap(imageContainer.getBitmap());
+                        } else {
+                            //设置默认图片
+                            viewHolder.ic_icon_photos.setImageResource(R.drawable.home_scroll_default);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                //如果出错，则说明都不显示（简单处理），最好准备一张出错图片
+                viewHolder.ic_icon_photos.setImageResource(R.drawable.home_scroll_default);
+            }
+        };
+        VolleyManager.getImageLoader().get(imageurl, listener);
     }
 
     private PhotosDetailPagerBean parsedJson(String saveJson) {
