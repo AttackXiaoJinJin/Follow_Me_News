@@ -27,4 +27,6 @@ public abstract class MenuDetailBasePager {
 
     }
 
+
+
 }

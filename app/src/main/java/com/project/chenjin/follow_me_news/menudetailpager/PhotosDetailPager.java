@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -80,10 +81,35 @@ public class PhotosDetailPager extends MenuDetailBasePager{
         PhotosDetailPagerBean photosDetailPagerBean = parsedJson(saveJson);
        LogUtil.e(photosDetailPagerBean.getData().getNews().get(0).getTitle());
 
+        isShowListView = true;
         //设置适配器
         news = photosDetailPagerBean.getData().getNews();
         adapter = new PhotosDetailPagerAdapter();
         listView_photos.setAdapter(adapter);
+    }
+    //true显示listview,隐藏gridview
+    private boolean isShowListView = true;
+
+    public void switchListAndGrid(ImageButton ic_switch_list_grid) {
+         if(isShowListView){
+             isShowListView = false;
+             //显示gridview,隐藏listview
+             gridView_photos.setVisibility(View.VISIBLE);
+             adapter = new PhotosDetailPagerAdapter();
+             gridView_photos.setAdapter(adapter);
+             //按钮显示成listview
+             listView_photos.setVisibility(View.GONE);
+             ic_switch_list_grid.setImageResource(R.drawable.icon_pic_list_type);
+         }else{
+             isShowListView = true;
+             listView_photos.setVisibility(View.VISIBLE);
+             adapter = new PhotosDetailPagerAdapter();
+             listView_photos.setAdapter(adapter);
+             //按钮显示成listview
+             gridView_photos.setVisibility(View.GONE);
+             ic_switch_list_grid.setImageResource(R.drawable.icon_pic_grid_type);
+         }
+
     }
 
     class PhotosDetailPagerAdapter extends BaseAdapter{

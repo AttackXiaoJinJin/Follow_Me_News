@@ -303,7 +303,7 @@ public class HomePager extends BasePager{
         fl_content.removeAllViews();
         //3.添加新内容
         //这两行注释，则投票可以点击
-       MenuDetailBasePager detailBasePager = detailBasePagers.get(position);
+       final MenuDetailBasePager detailBasePager = detailBasePagers.get(position);
         View rtView =detailBasePager.rootView;
         //初始化数据
         detailBasePager.initData();
@@ -317,6 +317,18 @@ public class HomePager extends BasePager{
        if(position == 2){
            //切换到图组页面
            ic_switch_list_grid.setVisibility(View.VISIBLE);
+           //设置点击事件
+           ic_switch_list_grid.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   //1.得到图组详情页面对象
+                   PhotosDetailPager photosDetailPager =(PhotosDetailPager) detailBasePagers.get(2);
+                   //2.调用图组对象的切换listview和gridview的方法
+                   photosDetailPager.switchListAndGrid(ic_switch_list_grid);
+
+
+               }
+           });
        }else{
            //其他页面
            ic_switch_list_grid.setVisibility(View.GONE);
