@@ -48,8 +48,8 @@ public class JsCallJavaVideoActivity extends Activity {
        webView.addJavascriptInterface(new MyJavascriptInterface(),"android");
 
         //加载网络的页面，也可以加载应用内置的页面
-        webView.loadUrl("file:///android_asset/RealNetJSCallJavaActivity.html");
-
+        //webView.loadUrl("file:///android_asset/RealNetJSCallJavaActivity.html");
+        webView.loadUrl("http://192.168.1.105:8888/RealNetJSCallJavaActivity.html");
 
     }
 

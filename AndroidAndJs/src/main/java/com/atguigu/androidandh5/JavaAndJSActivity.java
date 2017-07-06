@@ -38,7 +38,7 @@ public class JavaAndJSActivity extends Activity implements View.OnClickListener 
         etPassword = (EditText) findViewById(R.id.et_password);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
-
+        initWebView();
     }
 
     /**
@@ -108,7 +108,10 @@ public class JavaAndJSActivity extends Activity implements View.OnClickListener 
         webView.addJavascriptInterface(new MyJavascriptInterface(),"android");
 
         //加载网络的页面，也可以加载应用内置的页面
-        webView.loadUrl("file:///android_asset/JavaAndJavaScriptCall.html");
+        //webView.loadUrl("file:///android_asset/JavaAndJavaScriptCall.html");
+        webView.loadUrl("http://192.168.1.105:8888/JavaAndJavaScriptCall.html");
+
+
        // setContentView(webView);
     }
 

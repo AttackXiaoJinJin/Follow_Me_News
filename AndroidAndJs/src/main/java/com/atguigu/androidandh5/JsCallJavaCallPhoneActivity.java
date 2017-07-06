@@ -66,8 +66,8 @@ public class JsCallJavaCallPhoneActivity extends Activity {
 
         //加载本地资源
 
-        webview.loadUrl("file:///android_asset/JsCallJavaCallPhone.html");
-        //webView.loadUrl("http://10.0.2.2:8080/assets/JsCallJavaCallPhone.html");
+        //webview.loadUrl("file:///android_asset/JsCallJavaCallPhone.html");
+        webview.loadUrl("http://192.168.1.105:8888/JsCallJavaCallPhone.html");
 
     }
 
