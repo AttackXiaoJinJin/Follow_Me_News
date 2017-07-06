@@ -3,9 +3,12 @@ package com.project.chenjin.follow_me_news.menudetailpager.tabdetailpager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -65,6 +68,9 @@ public class TabDetailPager extends MenuDetailBasePager{
     private String moreUrl;
     //是否加载更多
     private boolean isLoadMOre = false;
+    private MyInnerHandler innerHandler;
+
+    private boolean isDragging = false;
 
 
     public TabDetailPager(Context context, HomePagerBean.DataBean.ChildrenBean childrenBean) {
@@ -247,10 +253,34 @@ public class TabDetailPager extends MenuDetailBasePager{
             tabDetailPagerListAdapter.notifyDataSetChanged();
 
         }
-
-
+        //发消息每隔4000ms切换一次viewPager页面
+        if(innerHandler == null) {
+            innerHandler = new MyInnerHandler();
+        }
+        //把消息队列所有的消息和回调移除
+        innerHandler.removeCallbacksAndMessages(null);
+        innerHandler.postDelayed(new MyRunnable(),3000);
 
     }
+    class MyInnerHandler extends Handler{
+        @Override
+        public void handleMessage(Message msg){
+            super.handleMessage(msg);
+            //切换viewpager的下一个页面
+            int item = (tabdetail_viewpager.getCurrentItem()+1)%(topnews.size());
+            tabdetail_viewpager.setCurrentItem(item);
+            innerHandler.postDelayed(new MyRunnable(),3000);
+        }
+    }
+    //runnable不是子线程，而是可以发任务，只是一个方法
+    class MyRunnable implements Runnable{
+
+        @Override
+        public void run() {
+            innerHandler.sendEmptyMessage(0);
+        }
+    }
+
 
     class TabDetailPagerListAdapter extends BaseAdapter{
 
@@ -371,7 +401,25 @@ public class TabDetailPager extends MenuDetailBasePager{
 
         @Override
         public void onPageScrollStateChanged(int state) {
+            //拖拽
+            if(state == ViewPager.SCROLL_STATE_DRAGGING){
+                //拖拽要移除消息
+                isDragging =true;
+                innerHandler.removeCallbacksAndMessages(null);
 
+            }//惯性
+            else if(state == ViewPager.SCROLL_STATE_SETTLING && isDragging){
+                //发消息
+                isDragging = false;
+                innerHandler.removeCallbacksAndMessages(null);
+                innerHandler.postDelayed(new MyRunnable(), 3000);
+            }//禁止
+            else if(state == ViewPager.SCROLL_STATE_IDLE && isDragging){
+                //发消息
+                isDragging = false;
+                innerHandler.removeCallbacksAndMessages(null);
+                innerHandler.postDelayed(new MyRunnable(), 3000);
+            }
         }
     }
 
@@ -396,6 +444,31 @@ public class TabDetailPager extends MenuDetailBasePager{
             x.image().bind(imageView, imageUrl);
             //闪退是图片过大,这么改图片模糊
             //x.image().bind(imageView, imageUrl,imageOptions);
+
+            imageView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    //触摸事件返回true,既有触摸又有点击返回false
+                    switch (event.getAction()){
+                        case MotionEvent.ACTION_DOWN://按下
+                            //把消息队列所有的消息和回调移除
+                            innerHandler.removeCallbacksAndMessages(null);
+
+                            break;
+                        case MotionEvent.ACTION_UP://松开
+                            innerHandler.removeCallbacksAndMessages(null);
+                            innerHandler.postDelayed(new MyRunnable(),3000);
+                            break;
+                        /*case MotionEvent.ACTION_CANCEL://取消
+                            innerHandler.removeCallbacksAndMessages(null);
+                            innerHandler.postDelayed(new MyRunnable(),3000);
+                            break;*/
+                    }
+                    return true;
+                }
+            });
+
+
             return imageView;
         }
 
