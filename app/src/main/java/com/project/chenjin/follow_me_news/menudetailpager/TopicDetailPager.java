@@ -4,9 +4,11 @@ import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.project.chenjin.follow_me_news.MainActivity;
@@ -88,8 +90,24 @@ public class TopicDetailPager extends MenuDetailBasePager{
         //tabLayout.setTabMode(TabLayout.MODE_FIXED);
          tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
+        //遍历所有的tab,设置自定义样式
+       /* for(int i=0;i< tabLayout.getTabCount();i++){
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setCustomView(getTabView(i));
+        }*/
 
     }
+
+    public View getTabView(int position){
+        View view = LayoutInflater.from(context).inflate(R.layout.tab_item,null);
+        TextView textView = (TextView)view.findViewById(R.id.textView);
+        textView.setText(childrenBeanList.get(position).getTitle());
+       // ImageView imageView = (ImageView)view.findViewById(R.id.imageView);
+        //imageView.setImageResource(R.drawable.dot_focus);
+        return view;
+
+    }
+
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
 
         @Override
