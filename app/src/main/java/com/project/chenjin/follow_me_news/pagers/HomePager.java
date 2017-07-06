@@ -314,6 +314,13 @@ public class HomePager extends BasePager{
         {
             e.printStackTrace();
         }*/
+       if(position == 2){
+           //切换到图组页面
+           ic_switch_list_grid.setVisibility(View.VISIBLE);
+       }else{
+           //其他页面
+           ic_switch_list_grid.setVisibility(View.GONE);
+       }
 
     }
 }

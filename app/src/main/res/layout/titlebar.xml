@@ -69,4 +69,16 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/ic_switch_list_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_pic_grid_type"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        />
+
     </RelativeLayout>

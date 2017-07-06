@@ -28,6 +28,8 @@ public class BasePager {
     //加载各个子页面
     public FrameLayout fl_content;
 
+    public ImageButton ic_switch_list_grid;
+
     public BasePager( Context context){
         this.context = context;
         rootView = initView();
@@ -38,6 +40,7 @@ public class BasePager {
         tv_title=(TextView)view.findViewById(R.id.tv_title);
         ic_menu=(ImageButton)view.findViewById(R.id.ic_menu);
         fl_content=(FrameLayout)view.findViewById(R.id.fl_content);
+        ic_switch_list_grid=(ImageButton)view.findViewById(R.id.ic_switch_list_grid);
         ic_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

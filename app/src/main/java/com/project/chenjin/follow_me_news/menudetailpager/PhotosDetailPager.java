@@ -1,12 +1,15 @@
 package com.project.chenjin.follow_me_news.menudetailpager;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.GridView;
+import android.widget.ListView;
 
+import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
+
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 /**
  * 项目名称： Follow_Me_News
@@ -16,26 +19,26 @@ import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
  */
 
 public class PhotosDetailPager extends MenuDetailBasePager{
-    private TextView textView;
+    @ViewInject(R.id.listview_photos)
+    private ListView listView_photos;
 
-
+    @ViewInject(R.id.gridview_photos)
+    private GridView gridView_photos;
     public PhotosDetailPager(Context context) {
         super(context);
     }
 
     @Override
     public View initView() {
-        textView = new TextView(context);
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.BLACK);
-        textView.setTextSize(25);
+        View view = View.inflate(context, R.layout.photos_detail_pager, null);
+        x.view().inject(this, view);
 
-        return textView;
+        return view;
     }
 
     @Override
     public void initData() {
         super.initData();
-        textView.setText("设置图组内容");
+
     }
 }
