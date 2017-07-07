@@ -192,7 +192,7 @@ public class HomePager extends BasePager{
         detailBasePagers.add(new NewsDetailPager(context,slidingdata.get(0)));
         detailBasePagers.add(new TopicDetailPager(context,slidingdata.get(0)));
         detailBasePagers.add(new PhotosDetailPager(context,slidingdata.get(2)));
-        detailBasePagers.add(new InteractDetailPager(context));
+        detailBasePagers.add(new InteractDetailPager(context,slidingdata.get(2)));
 
         //把数据传递给左侧菜单
         leftMenuFragment.setData(slidingdata);
