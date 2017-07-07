@@ -29,11 +29,14 @@ public class NetCacheUtil {
     private ExecutorService service;
     //本地缓存工具类
     private final LocalCacheUtil localCacheUtil;
+    //内存缓存工具类
+    private final MemoryCacheUtil memoryCacheUtil;
 
-    public NetCacheUtil(Handler handler, LocalCacheUtil localCacheUtil) {
+    public NetCacheUtil(Handler handler, LocalCacheUtil localCacheUtil, MemoryCacheUtil memoryCacheUtil) {
         this.handler = handler;
         service = Executors.newFixedThreadPool(10);
         this.localCacheUtil = localCacheUtil;
+        this.memoryCacheUtil = memoryCacheUtil;
     }
 
     //联网请求得到图片
@@ -80,7 +83,9 @@ public class NetCacheUtil {
                     msg.arg1 = position ;
                     msg.obj = bitmap ;
                     handler.sendMessage(msg);
+
                     //在内存中缓存一份
+                    memoryCacheUtil.putBitmap(imageUrl, bitmap);
 
                     //在本地缓存一份
                     localCacheUtil.putBitmap(imageUrl, bitmap);

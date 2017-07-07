@@ -18,15 +18,27 @@ public class BitmapCacheUtil {
 
     //本地缓存的工具类
     private LocalCacheUtil localCacheUtil;
+    //内存缓存的工具类
+    private MemoryCacheUtil memoryCacheUtil;
 
     public BitmapCacheUtil(Handler handler) {
-        localCacheUtil = new LocalCacheUtil();
-       netCacheUtil =new NetCacheUtil(handler, localCacheUtil);
+        memoryCacheUtil = new MemoryCacheUtil();
+        localCacheUtil = new LocalCacheUtil(memoryCacheUtil);
+       netCacheUtil =new NetCacheUtil(handler, localCacheUtil, memoryCacheUtil);
     }
 
 
     public Bitmap getBitmap(String imageUrl, int position) {
         //1.从内存中获取图片
+        if(memoryCacheUtil != null){
+            Bitmap bitmap = memoryCacheUtil.getBitmapFromUrl(imageUrl);
+            if(bitmap != null){
+                LogUtil.e("内存图片加载成功++" + position);
+                return bitmap;
+            }
+        }
+
+
         //2.从本地中获取图片
         if(localCacheUtil != null){
             Bitmap bitmap = localCacheUtil.getBitmapFromUrl(imageUrl);
