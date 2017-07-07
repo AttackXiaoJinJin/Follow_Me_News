@@ -1,7 +1,0 @@
-#Fri Jul 07 14:42:36 CST 2017
-base.0=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5ba7f92782befbe9d8e38491ecc8bc05efb8576f
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fe050f18b88967166c0ff82a23f6561152bde9b9\\classes.dex
-base.1=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fe050f18b88967166c0ff82a23f6561152bde9b9
-file.0=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5ba7f92782befbe9d8e38491ecc8bc05efb8576f\\classes.dex

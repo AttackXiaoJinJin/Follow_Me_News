@@ -1,7 +1,0 @@
-#Fri Jul 07 14:42:10 CST 2017
-base.0=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\jcore-android_v1.1.3_e9a3300c87cd1bb2c9b336cadbc7d7c55c754803
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\jpush-android_v3.0.6_afb72c49c12e2245ee1c4904102ecc9086953f2b\\classes.dex
-base.1=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\jpush-android_v3.0.6_afb72c49c12e2245ee1c4904102ecc9086953f2b
-file.0=F\:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\jcore-android_v1.1.3_e9a3300c87cd1bb2c9b336cadbc7d7c55c754803\\classes.dex

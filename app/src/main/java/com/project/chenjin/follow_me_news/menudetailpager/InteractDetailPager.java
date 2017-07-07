@@ -21,9 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
 import com.project.chenjin.follow_me_news.domain.HomePagerBean;
@@ -103,6 +103,8 @@ public class InteractDetailPager extends MenuDetailBasePager{
         super(context);
         this.dataBean = dataBean;
         bitmapCacheUtil = new BitmapCacheUtil(handler);
+
+
     }
 
     @Override
@@ -161,9 +163,27 @@ public class InteractDetailPager extends MenuDetailBasePager{
 
     class InteractDetailPagerAdapter extends BaseAdapter {
 
-        public InteractDetailPagerAdapter() {
-            super();
+        private DisplayImageOptions options;
+
+        //构造方法，ImageLoader
+        public InteractDetailPagerAdapter(){
+            options = new DisplayImageOptions.Builder()
+                    .showImageOnLoading(R.drawable.home_scroll_default)
+                    .showImageForEmptyUri(R.drawable.home_scroll_default)
+                    .showImageOnFail(R.drawable.home_scroll_default)
+                    .cacheInMemory(true)
+                    .cacheOnDisk(true)
+                    .considerExifParams(true)
+                    .bitmapConfig(Bitmap.Config.RGB_565)
+                    .displayer(new RoundedBitmapDisplayer(20))//设置矩形圆角
+                    .build();
+
         }
+
+
+       /* public InteractDetailPagerAdapter() {
+            super();
+        }*/
 
         @Override
         public int getCount() {
@@ -215,12 +235,15 @@ public class InteractDetailPager extends MenuDetailBasePager{
                     .into(viewHolder.ic_icon_photos);*/
 
             //使用glide加载图片
-            Glide.with(context)
+           /* Glide.with(context)
                     .load(imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(R.drawable.home_scroll_default)
                     .error(R.drawable.home_scroll_default)
-                    .into(viewHolder.ic_icon_photos);
+                    .into(viewHolder.ic_icon_photos);*/
+
+           //使用ImageLoader加载图片
+           com.nostra13.universalimageloader.core.ImageLoader.getInstance().displayImage(imageUrl, viewHolder.ic_icon_photos , options);
 
 
             return convertView;
