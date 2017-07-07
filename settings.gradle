@@ -1,3 +1,3 @@
-include ':app', ':SlidingMenulibrary', ':refreshlistview', ':AndroidAndJs', ':JPushExample(669763)', ':photoviewLibrary'
+include ':app', ':SlidingMenulibrary', ':refreshlistview', ':AndroidAndJs', ':JPushExample(669763)', ':photoviewLibrary', ':OkHttpSample', ':okhttpserver', ':okhttputils', ':OkHttpUtils_sample'
 include ':ViewPagerIndicatorlibrary'
 include ':PullToRefreshLibrary'

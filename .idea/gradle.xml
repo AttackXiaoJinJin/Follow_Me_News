@@ -10,10 +10,14 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AndroidAndJs" />
             <option value="$PROJECT_DIR$/JPushExample(669763)" />
+            <option value="$PROJECT_DIR$/OkHttpSample" />
+            <option value="$PROJECT_DIR$/OkHttpUtils_sample" />
             <option value="$PROJECT_DIR$/PullToRefreshLibrary" />
             <option value="$PROJECT_DIR$/SlidingMenulibrary" />
             <option value="$PROJECT_DIR$/ViewPagerIndicatorlibrary" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/okhttpserver" />
+            <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/photoviewLibrary" />
             <option value="$PROJECT_DIR$/refreshlistview" />
           </set>

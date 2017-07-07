@@ -26,7 +26,7 @@ public class ShowImageActivity extends AppCompatActivity {
                 .into(photoView, new Callback() {
                     @Override
                     public void onSuccess() {
-
+                         attacher.update();
                     }
 
                     @Override

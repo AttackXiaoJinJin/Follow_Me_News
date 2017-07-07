@@ -5,10 +5,14 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidAndJs/AndroidAndJs.iml" filepath="$PROJECT_DIR$/AndroidAndJs/AndroidAndJs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Follow_Me_News.iml" filepath="$PROJECT_DIR$/Follow_Me_News.iml" />
       <module fileurl="file://$PROJECT_DIR$/JPushExample(669763)/JPushExample(669763).iml" filepath="$PROJECT_DIR$/JPushExample(669763)/JPushExample(669763).iml" />
+      <module fileurl="file://$PROJECT_DIR$/OkHttpSample/OkHttpSample.iml" filepath="$PROJECT_DIR$/OkHttpSample/OkHttpSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OkHttpUtils_sample/OkHttpUtils_sample.iml" filepath="$PROJECT_DIR$/OkHttpUtils_sample/OkHttpUtils_sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" filepath="$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlidingMenulibrary/SlidingMenulibrary.iml" filepath="$PROJECT_DIR$/SlidingMenulibrary/SlidingMenulibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicatorlibrary/ViewPagerIndicatorlibrary.iml" filepath="$PROJECT_DIR$/ViewPagerIndicatorlibrary/ViewPagerIndicatorlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttpserver/okhttpserver.iml" filepath="$PROJECT_DIR$/okhttpserver/okhttpserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttputils/okhttputils.iml" filepath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoviewLibrary/photoviewLibrary.iml" filepath="$PROJECT_DIR$/photoviewLibrary/photoviewLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/refreshlistview/refreshlistview.iml" filepath="$PROJECT_DIR$/refreshlistview/refreshlistview.iml" />
     </modules>
