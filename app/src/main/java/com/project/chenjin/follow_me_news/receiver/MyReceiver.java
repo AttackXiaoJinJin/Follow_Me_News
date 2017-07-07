@@ -11,6 +11,7 @@ import com.project.chenjin.follow_me_news.activity.NewsDetailActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xutils.common.util.LogUtil;
 
 import java.util.Iterator;
 
@@ -51,10 +52,17 @@ public class MyReceiver extends BroadcastReceiver {
 
             } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
                 Logger.d(TAG, "[MyReceiver] 用户点击打开了通知");
+                String url = "http://www.bilibili.com/" ;
+
+                JSONObject jsonObject = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA));
+                url = jsonObject.optString("url");
+                LogUtil.e("url ======" + url);
 
                 //打开自定义的Activity
                 Intent i = new Intent(context, NewsDetailActivity.class);
                 i.putExtras(bundle);
+
+                i.putExtra("url" , url);
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context.startActivity(i);
