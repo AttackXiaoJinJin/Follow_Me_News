@@ -21,6 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.project.chenjin.follow_me_news.R;
 import com.project.chenjin.follow_me_news.baseclass.MenuDetailBasePager;
@@ -200,11 +202,27 @@ public class InteractDetailPager extends MenuDetailBasePager{
            // loaderImager(viewHolder , imageUrl );
             //2.使用自定义的三级缓存请求图片
             //内存或本地,主线程不可能获得网络的图片
-            viewHolder.ic_icon_photos.setTag(position);
+           /* viewHolder.ic_icon_photos.setTag(position);
             Bitmap bitmap = bitmapCacheUtil.getBitmap(imageUrl, position);
             if(bitmap != null){
                 viewHolder.ic_icon_photos.setImageBitmap(bitmap);
-            }
+            }*/
+            //使用picasso请求列表图片
+           /* Picasso.with(context)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.home_scroll_default)
+                    .error(R.drawable.home_scroll_default)
+                    .into(viewHolder.ic_icon_photos);*/
+
+            //使用glide加载图片
+            Glide.with(context)
+                    .load(imageUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.home_scroll_default)
+                    .error(R.drawable.home_scroll_default)
+                    .into(viewHolder.ic_icon_photos);
+
+
             return convertView;
         }
     }
