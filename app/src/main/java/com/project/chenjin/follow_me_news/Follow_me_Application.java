@@ -6,6 +6,8 @@ import com.project.chenjin.follow_me_news.volley.VolleyManager;
 
 import org.xutils.x;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * 项目名称： Follow_Me_News
  * 创建人  ： chenjin
@@ -22,6 +24,10 @@ public class Follow_me_Application extends Application {
         x.Ext.init(this);
         //初始化volley
         VolleyManager.init(this);
+
+        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);     		// 初始化 JPush
+
 
     }
 }

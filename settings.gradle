@@ -1,3 +1,3 @@
-include ':app', ':SlidingMenulibrary', ':refreshlistview', ':AndroidAndJs'
+include ':app', ':SlidingMenulibrary', ':refreshlistview', ':AndroidAndJs', ':JPushExample(669763)'
 include ':ViewPagerIndicatorlibrary'
 include ':PullToRefreshLibrary'

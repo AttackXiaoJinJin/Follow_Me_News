@@ -64,12 +64,12 @@
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\news_tab_item_bg_select.9.png",
-        "source": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\news_tab_item_bg_select.9.png"
-    },
-    {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_text_cursor_material.xml",
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\news_tab_item_bg_select.9.png",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\news_tab_item_bg_select.9.png"
     },
     {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\vpi__tab_indicator_color.xml",

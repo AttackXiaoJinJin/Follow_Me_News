@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidAndJs/AndroidAndJs.iml" filepath="$PROJECT_DIR$/AndroidAndJs/AndroidAndJs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Follow_Me_News.iml" filepath="$PROJECT_DIR$/Follow_Me_News.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JPushExample(669763)/JPushExample(669763).iml" filepath="$PROJECT_DIR$/JPushExample(669763)/JPushExample(669763).iml" />
       <module fileurl="file://$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" filepath="$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlidingMenulibrary/SlidingMenulibrary.iml" filepath="$PROJECT_DIR$/SlidingMenulibrary/SlidingMenulibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicatorlibrary/ViewPagerIndicatorlibrary.iml" filepath="$PROJECT_DIR$/ViewPagerIndicatorlibrary/ViewPagerIndicatorlibrary.iml" />

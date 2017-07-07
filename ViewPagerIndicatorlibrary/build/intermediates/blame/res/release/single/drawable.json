@@ -132,12 +132,12 @@
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
-        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator_color.xml",
-        "source": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\drawable\\vpi__tab_indicator_color.xml"
-    },
-    {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator_color.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\src\\main\\res\\drawable\\vpi__tab_indicator_color.xml"
     },
     {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",

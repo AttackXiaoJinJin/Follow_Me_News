@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\push_set_dialog.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\push_set_dialog.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\set_push_time.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\set_push_time.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\customer_notitfication_layout.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\customer_notitfication_layout.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\jpush_popwin_layout.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\jpush_popwin_layout.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\customer_notitfication_layout_one.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\customer_notitfication_layout_one.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\jpush_webview_layout.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\jpush_webview_layout.xml"
+    },
+    {
+        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "F:\\ASWorkSpace\\Follow_Me_News\\JPushExample(669763)\\res\\layout\\main.xml"
+    }
+]

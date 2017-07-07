@@ -44,10 +44,6 @@
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
-        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
-        "source": "C:\\Users\\chenjin\\.android\\build-cache\\690d0aa188ee6217c317745d768e1ed4413f6268\\output\\res\\drawable\\abc_dialog_material_background_dark.xml"
-    },
-    {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
@@ -108,10 +104,6 @@
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
-        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
-        "source": "C:\\Users\\chenjin\\.android\\build-cache\\690d0aa188ee6217c317745d768e1ed4413f6268\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
-    },
-    {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
@@ -170,9 +162,5 @@
     {
         "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\chenjin\\.android\\build-cache\\04ae037e7ae1bfb54e31524a306599e501f9a3ab\\output\\res\\drawable\\abc_switch_thumb_material.xml"
-    },
-    {
-        "merged": "F:\\ASWorkSpace\\Follow_Me_News\\ViewPagerIndicatorlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
-        "source": "C:\\Users\\chenjin\\.android\\build-cache\\690d0aa188ee6217c317745d768e1ed4413f6268\\output\\res\\drawable\\abc_ratingbar_full_material.xml"
     }
 ]
