@@ -27,10 +27,13 @@ public class NetCacheUtil {
     public static final int FAIL = 2;
     //线程池服务类
     private ExecutorService service;
+    //本地缓存工具类
+    private final LocalCacheUtil localCacheUtil;
 
-    public NetCacheUtil(Handler handler) {
+    public NetCacheUtil(Handler handler, LocalCacheUtil localCacheUtil) {
         this.handler = handler;
         service = Executors.newFixedThreadPool(10);
+        this.localCacheUtil = localCacheUtil;
     }
 
     //联网请求得到图片
@@ -80,7 +83,7 @@ public class NetCacheUtil {
                     //在内存中缓存一份
 
                     //在本地缓存一份
-
+                    localCacheUtil.putBitmap(imageUrl, bitmap);
 
                 }
 
