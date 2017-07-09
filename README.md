@@ -93,10 +93,10 @@ x.Ext.init(this);
         ......
         ......
 
-```
-<br>
+```<br>
+
 ##### 3.使用Gson解析jsons数据<br>
-<br>
+
 ```
 
        private HomePagerBean parsedJson(String json) {
