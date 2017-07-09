@@ -6,13 +6,14 @@
 * Email: wwwcenjin1314@163.com
 
 ## 功能和特性:
-#####GuideActivity<br>
-  ![](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow1.gif)
-#####HomePager<br>
-follow4<br>
+##### GuideActivity<br>
+  ![follow1](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow1.gif)
+  <br>
+##### HomePager<br>
+![follow4](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow4.PNG)<br>
 
-#####1.侧滑栏SlidingMenu<br>
-  follow5
+##### 1.侧滑栏SlidingMenu<br>
+  ![follow5](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow5.gif) <br>
 1.1 初始化和使用<br>
 ```
 
@@ -34,7 +35,7 @@ follow4<br>
 ```
 
 
-#####2.联网请求<br>
+##### 2.联网请求<br>
 
 2.1 xUntils3<br>
 2.1.1在Application中初始化XUntils3<br>
@@ -94,7 +95,7 @@ x.Ext.init(this);
 
 ```
 
-#####3.使用Gson解析jsons数据<br>
+##### 3.使用Gson解析jsons数据<br>
 ```
 
        private HomePagerBean parsedJson(String json) {
@@ -108,8 +109,9 @@ x.Ext.init(this);
      ......
 ```
 
-#####4.ViewPageIndicator<br>
- follow6
+##### 4.ViewPageIndicator<br>
+ ![follow6](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow6.gif) 
+ <br>
 ```
 
        //ViewPager和TabPageIndicator关联
@@ -117,8 +119,8 @@ x.Ext.init(this);
 
 ```
 
-#####5.数据缓存<br>
-follow7<br>
+##### 5.数据缓存<br>
+![follow7](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow7.gif)<br>
 
 * 缓存文本数据
 ```
@@ -157,10 +159,10 @@ follow7<br>
         ......
 ```
 
-#####6.下拉刷新，上拉加载<br>
+##### 6.下拉刷新，上拉加载<br>
 
 6.1 自定义下拉刷新<br>
-follow8<br>
+![follow8](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow8.gif)<br>
 ```
 
      private void getDataFromNet() {
@@ -183,7 +185,7 @@ follow8<br>
 ```
 
 6.2自定义上拉加载<br>
-follow13<br>
+![follow13](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow13.gif)<br>
 ```
 
        private void getMoreDataFromNet() {
@@ -203,8 +205,8 @@ follow13<br>
             ......
 ```
 
-#####7.进入详情界面&&设置字体大小<br>
-follow9
+##### 7.进入详情界面&&设置字体大小<br>
+![follow9](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow9.gif)
 ```
 
           //跳转到新闻浏览页面
@@ -231,8 +233,8 @@ follow9
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 ```
 
-#####8.gridview和listview相互切换<br>
-follow10<br>
+##### 8.gridview和listview相互切换<br>
+![follow10](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow10.gif)<br>
 ```
 
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -247,8 +249,8 @@ follow10<br>
         }
 ```
 
-#####9.photoview的使用<br>
-follow11<br>
+##### 9.photoview的使用<br>
+![follow11](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow11.gif)<br>
 ```
 
       final PhotoViewAttacher attacher = new PhotoViewAttacher(photoView);
@@ -268,10 +270,10 @@ follow11<br>
 
 ```
 
-#####10.Android与H5互调
-follow12
-follow14
-follow15
+##### 10.Android与H5互调
+![follow12](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow12.gif)<br>
+![follow14](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow14.gif)<br>
+![follow15](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow15.gif)<br>
 
 
 
