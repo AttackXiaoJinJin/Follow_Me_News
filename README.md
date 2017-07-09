@@ -6,7 +6,7 @@
 * Email: wwwcenjin1314@163.com
 
 ## 功能和特性:
-#####GuideActivity
+#####GuideActivity<br>
   ![](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow1.gif)
 #####HomePager<br>
 follow4<br>
