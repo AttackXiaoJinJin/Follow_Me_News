@@ -41,12 +41,11 @@
 2.1.1在Application中初始化XUntils3<br>
 ```
 x.Ext.setDebug(true);
-```<br>
-```
 x.Ext.init(this);
-```<br>
+```
 
-2.1.2 使用xUntils3做联网请求<br>
+2.1.2 使用xUntils3做联网请求
+
 ```
 
       private void getDataFromInternet() {
@@ -69,7 +68,8 @@ x.Ext.init(this);
 
 ```
 
-2.2使用volley做联网请求<br>
+2.2使用volley做联网请求
+
 ```
 
        private void getDataFromInternetByVolley() {
@@ -93,9 +93,10 @@ x.Ext.init(this);
         ......
         ......
 
-```<br>
+```
 
-##### 3.使用Gson解析jsons数据<br>
+##### 3.使用Gson解析jsons数据
+
 
 ```
 
@@ -114,6 +115,7 @@ x.Ext.init(this);
 ##### 4.ViewPageIndicator<br>
  ![follow6](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow6.gif) 
  <br>
+ 
 ```
 
        //ViewPager和TabPageIndicator关联
