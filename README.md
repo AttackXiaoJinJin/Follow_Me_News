@@ -95,6 +95,7 @@ x.Ext.init(this);
 
 ```
 
+
 ##### 3.使用Gson解析jsons数据<br>
 ```
 
@@ -109,6 +110,7 @@ x.Ext.init(this);
      ......
 ```
 
+
 ##### 4.ViewPageIndicator<br>
  ![follow6](https://github.com/AttackXiaoJinJin/AndroidExample/blob/master/app/src/main/res/drawable-hdpi/follow6.gif) 
  <br>
@@ -118,6 +120,7 @@ x.Ext.init(this);
       tabPageIndicator.setViewPager(viewPager);
 
 ```
+
 
 ##### 5.数据缓存<br>
 ![follow7](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow7.gif)<br>
@@ -158,6 +161,7 @@ x.Ext.init(this);
         ......
         ......
 ```
+
 
 ##### 6.下拉刷新，上拉加载<br>
 
@@ -204,6 +208,7 @@ x.Ext.init(this);
             ......
             ......
 ```
+
 
 ##### 7.进入详情界面&&设置字体大小<br>
 ![follow9](https://raw.githubusercontent.com/AttackXiaoJinJin/AndroidExample/master/app/src/main/res/drawable-hdpi/follow9.gif)
